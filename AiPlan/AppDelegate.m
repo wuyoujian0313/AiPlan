@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <AIBase/AIBase.h>
 
+#define kHomePageURL @"http://plan.wadecn.com"
+
 @interface AppDelegate ()
 @property (nonatomic, strong) AINavigationController        *mainNav;
 @property (nonatomic, strong) WebViewKitController          *mainVC;
@@ -24,7 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     WebViewKitController *tempVC = [[WebViewKitController alloc] init];
     self.mainVC = tempVC;
-    [_mainVC loadWebViewForURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    [_mainVC loadWebViewForURL:[NSURL URLWithString:kHomePageURL]];
     
     AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_mainVC];
     self.mainNav = tempNav;

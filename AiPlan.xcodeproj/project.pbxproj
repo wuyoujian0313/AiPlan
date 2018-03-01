@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF96F77D2047A1E70097D273 /* InfoPlist.strings */; };
 		AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BE720439E2500AEBD25 /* AppDelegate.m */; };
 		AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */; };
 		AFBF2BF620439E2500AEBD25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BF520439E2500AEBD25 /* main.m */; };
@@ -14,11 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF96F7792047A1A10097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		AF96F77E2047A1E70097D273 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		AF96F7802047A1F30097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AFBF2BE320439E2500AEBD25 /* AiPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF2BE620439E2500AEBD25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AFBF2BE720439E2500AEBD25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFBF2BF420439E2500AEBD25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFBF2BF520439E2500AEBD25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFBF2C052043E69B00AEBD25 /* AIBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AIBase.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +61,8 @@
 				AFBF2BE620439E2500AEBD25 /* AppDelegate.h */,
 				AFBF2BE720439E2500AEBD25 /* AppDelegate.m */,
 				AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */,
-				AFBF2BF420439E2500AEBD25 /* Info.plist */,
+				AF96F77A2047A1A10097D273 /* Info.plist */,
+				AF96F77D2047A1E70097D273 /* InfoPlist.strings */,
 				AFBF2BF520439E2500AEBD25 /* main.m */,
 			);
 			path = AiPlan;
@@ -106,6 +110,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = AFBF2BDA20439E2500AEBD25;
 			productRefGroup = AFBF2BE420439E2500AEBD25 /* Products */;
@@ -123,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */,
+				AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +145,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AF96F77A2047A1A10097D273 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF96F7792047A1A10097D273 /* en */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		AF96F77D2047A1E70097D273 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF96F77E2047A1E70097D273 /* zh-Hans */,
+				AF96F7802047A1F30097D273 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AFBF2BF720439E2500AEBD25 /* Debug */ = {
