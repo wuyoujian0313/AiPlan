@@ -53,36 +53,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initAppParam];
-    [self checkNetAuth];
     [self layoutMainPage];
-
+    [self checkNetAuth];
     return YES;
 }
 
 - (void)checkNetAuth {
     if (@available(iOS 9.0, *)) {
-        CTCellularData *cellularData = [[CTCellularData alloc] init];
-        CTCellularDataRestrictedState state = cellularData.restrictedState;
-        switch (state) {
-            case kCTCellularDataNotRestricted:
-                NSLog(@"Not Restricted");
-                
-                break;
-            case kCTCellularDataRestricted:
-            case kCTCellularDataRestrictedStateUnknown:
-            default: {
-                UIViewController* viewCtrl = _window.rootViewController;
-                UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据，请到设置里设置权限" preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
-                    exit(0);
-                }];
-                [controller addAction:confirm];
-                [viewCtrl presentViewController:controller animated:YES completion:nil];
-            }
-                
-                break;
-        }
+        CTCellularData *cellularData = [[CTCellularData alloc]init];
+        cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(CTCellularDataRestrictedState state){
+            //获取联网状态
+            switch (state) {
+                case kCTCellularDataNotRestricted:
+                    NSLog(@"Not Restricted");
+                    break;
+                case kCTCellularDataRestricted:
+                case kCTCellularDataRestrictedStateUnknown: {
+                    UIViewController* viewCtrl = _window.rootViewController;
+                    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据，请到设置里设置权限,之后重启应用" preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                        exit(0);
+                    }];
+                    [controller addAction:confirm];
+                    [viewCtrl presentViewController:controller animated:YES completion:nil];
+                }
+                    
+                    break;
+                default:
+                    break;
+            };
+        };
+    
     } else {
         // Fallback on earlier versions
     }
