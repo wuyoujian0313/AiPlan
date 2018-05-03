@@ -73,6 +73,7 @@ typedef NS_ENUM(NSInteger ,DeviceInfo_Model) {
 + (NSString*) platformString;
 
 + (NSInteger) navigationBarHeight;
++ (NSInteger) statusBarHeight;
 
 + (NSString*) getIPAddress:(BOOL)preferIPv4;
 + (NSDictionary*) getIPAddresses;

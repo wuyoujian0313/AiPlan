@@ -8,22 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF96F77D2047A1E70097D273 /* InfoPlist.strings */; };
+		AFA056BE209ADE7400297470 /* global.properties in Resources */ = {isa = PBXBuildFile; fileRef = AFA056BD209ADE7400297470 /* global.properties */; };
 		AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BE720439E2500AEBD25 /* AppDelegate.m */; };
 		AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */; };
 		AFBF2BF620439E2500AEBD25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BF520439E2500AEBD25 /* main.m */; };
 		AFBF2C062043E69B00AEBD25 /* AIBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBF2C052043E69B00AEBD25 /* AIBase.framework */; };
+		AFFCE7BC209A3F1500539D76 /* AIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCE7B4209A3F0800539D76 /* AIHTTPRequest.m */; };
+		AFFCE7BD209A3F1500539D76 /* AIHTTPURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCE7B6209A3F0800539D76 /* AIHTTPURLSession.m */; };
+		AFFCE7BE209A3F1500539D76 /* AIUpdateVersionHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCE7B8209A3F0800539D76 /* AIUpdateVersionHTTPRequest.m */; };
+		AFFCE7BF209A3F1500539D76 /* VersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFCE7BB209A3F0900539D76 /* VersionManager.m */; };
+		AFFCE7C2209A420800539D76 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFCE7C1209A420800539D76 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF96F7792047A1A10097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		AF96F77E2047A1E70097D273 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AF96F7802047A1F30097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AFA056BD209ADE7400297470 /* global.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = global.properties; sourceTree = "<group>"; };
 		AFBF2BE320439E2500AEBD25 /* AiPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF2BE620439E2500AEBD25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AFBF2BE720439E2500AEBD25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFBF2BF520439E2500AEBD25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFBF2C052043E69B00AEBD25 /* AIBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AIBase.framework; sourceTree = "<group>"; };
+		AFFCE7B3209A3F0800539D76 /* AIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHTTPRequest.h; sourceTree = "<group>"; };
+		AFFCE7B4209A3F0800539D76 /* AIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHTTPRequest.m; sourceTree = "<group>"; };
+		AFFCE7B5209A3F0800539D76 /* AIHTTPURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHTTPURLSession.h; sourceTree = "<group>"; };
+		AFFCE7B6209A3F0800539D76 /* AIHTTPURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHTTPURLSession.m; sourceTree = "<group>"; };
+		AFFCE7B7209A3F0800539D76 /* AIUpdateVersionHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIUpdateVersionHTTPRequest.h; sourceTree = "<group>"; };
+		AFFCE7B8209A3F0800539D76 /* AIUpdateVersionHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIUpdateVersionHTTPRequest.m; sourceTree = "<group>"; };
+		AFFCE7BA209A3F0900539D76 /* VersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionManager.h; sourceTree = "<group>"; };
+		AFFCE7BB209A3F0900539D76 /* VersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionManager.m; sourceTree = "<group>"; };
+		AFFCE7C1209A420800539D76 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFCE7C2209A420800539D76 /* CoreTelephony.framework in Frameworks */,
 				AFBF2C062043E69B00AEBD25 /* AIBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,11 +55,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AFA056BC209ADE7400297470 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				AFA056BD209ADE7400297470 /* global.properties */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		AFBF2BDA20439E2500AEBD25 = {
 			isa = PBXGroup;
 			children = (
 				AFBF2BE520439E2500AEBD25 /* AiPlan */,
 				AFBF2BE420439E2500AEBD25 /* Products */,
+				AFFCE7C0209A420800539D76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +83,9 @@
 		AFBF2BE520439E2500AEBD25 /* AiPlan */ = {
 			isa = PBXGroup;
 			children = (
+				AFA056BC209ADE7400297470 /* config */,
+				AFFCE7B2209A3F0800539D76 /* http */,
+				AFFCE7B9209A3F0900539D76 /* serviceAPIs */,
 				AFBF2C052043E69B00AEBD25 /* AIBase.framework */,
 				AFBF2BE620439E2500AEBD25 /* AppDelegate.h */,
 				AFBF2BE720439E2500AEBD25 /* AppDelegate.m */,
@@ -66,6 +95,36 @@
 				AFBF2BF520439E2500AEBD25 /* main.m */,
 			);
 			path = AiPlan;
+			sourceTree = "<group>";
+		};
+		AFFCE7B2209A3F0800539D76 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				AFFCE7B3209A3F0800539D76 /* AIHTTPRequest.h */,
+				AFFCE7B4209A3F0800539D76 /* AIHTTPRequest.m */,
+				AFFCE7B5209A3F0800539D76 /* AIHTTPURLSession.h */,
+				AFFCE7B6209A3F0800539D76 /* AIHTTPURLSession.m */,
+				AFFCE7B7209A3F0800539D76 /* AIUpdateVersionHTTPRequest.h */,
+				AFFCE7B8209A3F0800539D76 /* AIUpdateVersionHTTPRequest.m */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		AFFCE7B9209A3F0900539D76 /* serviceAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				AFFCE7BA209A3F0900539D76 /* VersionManager.h */,
+				AFFCE7BB209A3F0900539D76 /* VersionManager.m */,
+			);
+			path = serviceAPIs;
+			sourceTree = "<group>";
+		};
+		AFFCE7C0209A420800539D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFFCE7C1209A420800539D76 /* CoreTelephony.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */,
+				AFA056BE209ADE7400297470 /* global.properties in Resources */,
 				AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +199,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFCE7BF209A3F1500539D76 /* VersionManager.m in Sources */,
 				AFBF2BF620439E2500AEBD25 /* main.m in Sources */,
 				AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */,
+				AFFCE7BE209A3F1500539D76 /* AIUpdateVersionHTTPRequest.m in Sources */,
+				AFFCE7BD209A3F1500539D76 /* AIHTTPURLSession.m in Sources */,
+				AFFCE7BC209A3F1500539D76 /* AIHTTPRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
