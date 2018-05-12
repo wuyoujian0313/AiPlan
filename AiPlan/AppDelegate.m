@@ -10,11 +10,13 @@
 #import <AIBase/AIBase.h>
 #import <CoreTelephony/CTCellularData.h>
 #import "VersionManager.h"
+#import "WKWebViewVC.h"
 
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AINavigationController        *mainNav;
 @property (nonatomic, strong) WebViewKitController          *mainVC;
+@property (nonatomic, strong) WKWebViewVC                  *homeVC;
 @end
 
 @implementation AppDelegate
@@ -23,16 +25,24 @@
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
 
-- (void)layoutMainPage {
+- (void)useUIWebViewController {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     WebViewKitController *tempVC = [[WebViewKitController alloc] init];
     self.mainVC = tempVC;
     
     GlobalCfg *cfg = [GlobalCfg SharedObj];
+#if 1
     NSString *homeURL = [cfg attr:@"online.addr"];
-    [_mainVC loadWebViewForURL:[NSURL URLWithString:homeURL]];
+    NSURL *url = [NSURL URLWithString:homeURL];
+#else
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *url = [NSURL URLWithString:[mainBundle pathForResource:@"department" ofType:@"html" inDirectory:@"demo/page"]];
+#endif
+    
+    [_mainVC loadWebViewForURL:url];
     NSString *userAgent = [cfg attr:@"userAgent"];
     [_mainVC setUserAgent:userAgent];
+    _mainVC.contentWebView.suppressesIncrementalRendering = YES;
     
     
     AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_mainVC];
@@ -41,6 +51,23 @@
     
     self.window.rootViewController = _mainNav;
     [_window makeKeyAndVisible];
+}
+
+- (void)useWKWebViewController {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    WKWebViewVC *tempVC = [[WKWebViewVC alloc] init];
+    self.homeVC = tempVC;
+
+    AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_homeVC];
+    self.mainNav = tempNav;
+    _mainNav.navigationBarHidden = YES;
+    self.window.rootViewController = _mainNav;
+    [_window makeKeyAndVisible];
+}
+
+- (void)layoutMainPage {
+    //[self useUIWebViewController];
+    [self useWKWebViewController];
 }
 
 - (void)initAppParam {
@@ -60,16 +87,18 @@
 
 - (void)checkNetAuth {
     if (@available(iOS 9.0, *)) {
+        __weak AppDelegate * wSelf = self;
         CTCellularData *cellularData = [[CTCellularData alloc]init];
         cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(CTCellularDataRestrictedState state){
             //获取联网状态
+            AppDelegate *sSelf = wSelf;
             switch (state) {
                 case kCTCellularDataNotRestricted:
                     NSLog(@"Not Restricted");
                     break;
                 case kCTCellularDataRestricted:
                 case kCTCellularDataRestrictedStateUnknown: {
-                    UIViewController* viewCtrl = _window.rootViewController;
+                    UIViewController* viewCtrl = sSelf.window.rootViewController;
                     UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据，请到设置里设置权限,之后重启应用" preferredStyle:UIAlertControllerStyleAlert];
                     
                     UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF6D3C5620A5C96B00E6FCCF /* WKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */; };
+		AF6D3C5820A5C9A600E6FCCF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */; };
 		AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF96F77D2047A1E70097D273 /* InfoPlist.strings */; };
 		AFA056BE209ADE7400297470 /* global.properties in Resources */ = {isa = PBXBuildFile; fileRef = AFA056BD209ADE7400297470 /* global.properties */; };
 		AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BE720439E2500AEBD25 /* AppDelegate.m */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF6D3C5420A5C96B00E6FCCF /* WKWebViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewVC.h; sourceTree = "<group>"; };
+		AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewVC.m; sourceTree = "<group>"; };
+		AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AF96F7792047A1A10097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		AF96F77E2047A1E70097D273 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AF96F7802047A1F30097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6D3C5820A5C9A600E6FCCF /* WebKit.framework in Frameworks */,
 				AFFCE7C2209A420800539D76 /* CoreTelephony.framework in Frameworks */,
 				AFBF2C062043E69B00AEBD25 /* AIBase.framework in Frameworks */,
 			);
@@ -89,6 +95,8 @@
 				AFBF2C052043E69B00AEBD25 /* AIBase.framework */,
 				AFBF2BE620439E2500AEBD25 /* AppDelegate.h */,
 				AFBF2BE720439E2500AEBD25 /* AppDelegate.m */,
+				AF6D3C5420A5C96B00E6FCCF /* WKWebViewVC.h */,
+				AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */,
 				AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */,
 				AF96F77A2047A1A10097D273 /* Info.plist */,
 				AF96F77D2047A1E70097D273 /* InfoPlist.strings */,
@@ -122,6 +130,7 @@
 		AFFCE7C0209A420800539D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */,
 				AFFCE7C1209A420800539D76 /* CoreTelephony.framework */,
 			);
 			name = Frameworks;
@@ -153,7 +162,7 @@
 		AFBF2BDB20439E2500AEBD25 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AI;
 				TargetAttributes = {
 					AFBF2BE220439E2500AEBD25 = {
@@ -202,6 +211,7 @@
 				AFFCE7BF209A3F1500539D76 /* VersionManager.m in Sources */,
 				AFBF2BF620439E2500AEBD25 /* main.m in Sources */,
 				AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */,
+				AF6D3C5620A5C96B00E6FCCF /* WKWebViewVC.m in Sources */,
 				AFFCE7BE209A3F1500539D76 /* AIUpdateVersionHTTPRequest.m in Sources */,
 				AFFCE7BD209A3F1500539D76 /* AIHTTPURLSession.m in Sources */,
 				AFFCE7BC209A3F1500539D76 /* AIHTTPRequest.m in Sources */,
@@ -235,6 +245,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -245,6 +256,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -252,6 +264,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -260,7 +273,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group shaanxi Company Limited";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -290,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -300,6 +314,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -307,6 +322,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -354,10 +370,10 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplanT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b857a747-69b5-48d0-9720-b85ae851acb3";
-				PROVISIONING_PROFILE_SPECIFIER = AIPlan_ProfileDis;
+				PROVISIONING_PROFILE = "4ef38fd6-6ca1-4319-b4bd-3538f8b6b83b";
+				PROVISIONING_PROFILE_SPECIFIER = APlanTest_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -367,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group shaanxi Company Limited";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D9UL93T4E6;
@@ -381,10 +398,10 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplanT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b857a747-69b5-48d0-9720-b85ae851acb3";
-				PROVISIONING_PROFILE_SPECIFIER = AIPlan_ProfileDis;
+				PROVISIONING_PROFILE = "4ef38fd6-6ca1-4319-b4bd-3538f8b6b83b";
+				PROVISIONING_PROFILE_SPECIFIER = APlanTest_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
