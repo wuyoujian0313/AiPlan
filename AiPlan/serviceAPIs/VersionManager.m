@@ -58,7 +58,7 @@ static NSString *const kAIAlertViewBlockKey = @"kAIAlertViewBlockKey";
                 NSString *versionNumber = jsonDictionary[@"versionNumber"];
                 NSString *versionURL = jsonDictionary[@"versionURL"];
                 NSString *locationVersion = [cfg attr:@"version"];;
-                if (![versionNumber isEqualToString:locationVersion]) {
+                if ([versionNumber compare:locationVersion options:NSCaseInsensitiveSearch] == NSOrderedDescending) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSString *updateMessage = @"远端发现新版本请更新后重新启动应用";
                         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 19.0) {
