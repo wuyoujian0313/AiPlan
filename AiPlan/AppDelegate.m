@@ -10,13 +10,12 @@
 #import <AIBase/AIBase.h>
 #import <CoreTelephony/CTCellularData.h>
 #import "VersionManager.h"
-#import "WKWebViewVC.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WKNavigationDelegate,WKUIDelegate>
 @property (nonatomic, strong) AINavigationController        *mainNav;
-@property (nonatomic, strong) WebViewKitController          *mainVC;
-@property (nonatomic, strong) WKWebViewVC                  *homeVC;
+@property (nonatomic, strong) AIWKWebViewController         *mainVC;
+
 @end
 
 @implementation AppDelegate
@@ -25,10 +24,15 @@
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
 
-- (void)useUIWebViewController {
+- (void)useWKWebViewController {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    WebViewKitController *tempVC = [[WebViewKitController alloc] init];
+    AIWKWebViewController *tempVC = [[AIWKWebViewController alloc] init];
+    tempVC.delegate = self;
     self.mainVC = tempVC;
+    
+    AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_mainVC];
+    self.mainNav = tempNav;
+    _mainNav.navigationBarHidden = YES;
     
     GlobalCfg *cfg = [GlobalCfg SharedObj];
 #if 1
@@ -39,34 +43,12 @@
     NSURL *url = [NSURL URLWithString:[mainBundle pathForResource:@"department" ofType:@"html" inDirectory:@"demo/page"]];
 #endif
     
-    [_mainVC loadWebViewForURL:url];
-    NSString *userAgent = [cfg attr:@"userAgent"];
-    [_mainVC setUserAgent:userAgent];
-    _mainVC.contentWebView.suppressesIncrementalRendering = YES;
-    
-    
-    AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_mainVC];
-    self.mainNav = tempNav;
-    _mainNav.navigationBarHidden = YES;
-    
-    self.window.rootViewController = _mainNav;
-    [_window makeKeyAndVisible];
-}
-
-- (void)useWKWebViewController {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    WKWebViewVC *tempVC = [[WKWebViewVC alloc] init];
-    self.homeVC = tempVC;
-
-    AINavigationController *tempNav = [[AINavigationController alloc] initWithRootViewController:_homeVC];
-    self.mainNav = tempNav;
-    _mainNav.navigationBarHidden = YES;
+    [_mainVC loadWKWebViewForURL:url configFile:@"wade-plugin.xml"];
     self.window.rootViewController = _mainNav;
     [_window makeKeyAndVisible];
 }
 
 - (void)layoutMainPage {
-    //[self useUIWebViewController];
     [self useWKWebViewController];
 }
 
@@ -81,8 +63,15 @@
     // Override point for customization after application launch.
     [self initAppParam];
     [self layoutMainPage];
+    [self setCustomUserAgent];
     [self checkNetAuth];
     return YES;
+}
+
+- (void)setCustomUserAgent {
+    GlobalCfg *cfg = [GlobalCfg SharedObj];
+    NSString *agentString = [cfg attr:@"userAgent"];
+    [_mainVC setUserAgent:agentString];
 }
 
 - (void)checkNetAuth {
@@ -99,7 +88,7 @@
                 case kCTCellularDataRestricted:
                 case kCTCellularDataRestrictedStateUnknown: {
                     UIViewController* viewCtrl = sSelf.window.rootViewController;
-                    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据，请到设置里设置权限,之后重启应用" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据,请到设置里设置权限,之后重启应用" preferredStyle:UIAlertControllerStyleAlert];
                     
                     UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
@@ -118,6 +107,14 @@
     } else {
         // Fallback on earlier versions
     }
+}
+
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+    GlobalCfg *cfg = [GlobalCfg SharedObj];
+    NSString *version = [cfg attr:cfg.CONFIG_FIELD_VERSION];
+    NSString *js = [NSString stringWithFormat:@"setAppVersion('版本：%@');",version];
+    [webView evaluateJavaScript:js completionHandler:nil];
 }
 
 

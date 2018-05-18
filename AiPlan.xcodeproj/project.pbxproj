@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF6D3C5620A5C96B00E6FCCF /* WKWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */; };
 		AF6D3C5820A5C9A600E6FCCF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */; };
 		AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF96F77D2047A1E70097D273 /* InfoPlist.strings */; };
 		AFA056BE209ADE7400297470 /* global.properties in Resources */ = {isa = PBXBuildFile; fileRef = AFA056BD209ADE7400297470 /* global.properties */; };
+		AFAAD3DC20AEE9010024CC68 /* wade-plugin.xml in Resources */ = {isa = PBXBuildFile; fileRef = AFAAD3DB20AEE9010024CC68 /* wade-plugin.xml */; };
 		AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BE720439E2500AEBD25 /* AppDelegate.m */; };
 		AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */; };
 		AFBF2BF620439E2500AEBD25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBF2BF520439E2500AEBD25 /* main.m */; };
@@ -23,13 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF6D3C5420A5C96B00E6FCCF /* WKWebViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewVC.h; sourceTree = "<group>"; };
-		AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewVC.m; sourceTree = "<group>"; };
 		AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AF96F7792047A1A10097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		AF96F77E2047A1E70097D273 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AF96F7802047A1F30097D273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AFA056BD209ADE7400297470 /* global.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = global.properties; sourceTree = "<group>"; };
+		AFAAD3DB20AEE9010024CC68 /* wade-plugin.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "wade-plugin.xml"; sourceTree = "<group>"; };
 		AFBF2BE320439E2500AEBD25 /* AiPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBF2BE620439E2500AEBD25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AFBF2BE720439E2500AEBD25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		AFA056BC209ADE7400297470 /* config */ = {
 			isa = PBXGroup;
 			children = (
+				AFAAD3DB20AEE9010024CC68 /* wade-plugin.xml */,
 				AFA056BD209ADE7400297470 /* global.properties */,
 			);
 			path = config;
@@ -92,11 +92,8 @@
 				AFA056BC209ADE7400297470 /* config */,
 				AFFCE7B2209A3F0800539D76 /* http */,
 				AFFCE7B9209A3F0900539D76 /* serviceAPIs */,
-				AFBF2C052043E69B00AEBD25 /* AIBase.framework */,
 				AFBF2BE620439E2500AEBD25 /* AppDelegate.h */,
 				AFBF2BE720439E2500AEBD25 /* AppDelegate.m */,
-				AF6D3C5420A5C96B00E6FCCF /* WKWebViewVC.h */,
-				AF6D3C5520A5C96B00E6FCCF /* WKWebViewVC.m */,
 				AFBF2BEF20439E2500AEBD25 /* Assets.xcassets */,
 				AF96F77A2047A1A10097D273 /* Info.plist */,
 				AF96F77D2047A1E70097D273 /* InfoPlist.strings */,
@@ -130,6 +127,7 @@
 		AFFCE7C0209A420800539D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFBF2C052043E69B00AEBD25 /* AIBase.framework */,
 				AF6D3C5720A5C9A600E6FCCF /* WebKit.framework */,
 				AFFCE7C1209A420800539D76 /* CoreTelephony.framework */,
 			);
@@ -198,6 +196,7 @@
 				AFBF2BF020439E2500AEBD25 /* Assets.xcassets in Resources */,
 				AFA056BE209ADE7400297470 /* global.properties in Resources */,
 				AF96F77F2047A1E70097D273 /* InfoPlist.strings in Resources */,
+				AFAAD3DC20AEE9010024CC68 /* wade-plugin.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +210,6 @@
 				AFFCE7BF209A3F1500539D76 /* VersionManager.m in Sources */,
 				AFBF2BF620439E2500AEBD25 /* main.m in Sources */,
 				AFBF2BE820439E2500AEBD25 /* AppDelegate.m in Sources */,
-				AF6D3C5620A5C96B00E6FCCF /* WKWebViewVC.m in Sources */,
 				AFFCE7BE209A3F1500539D76 /* AIUpdateVersionHTTPRequest.m in Sources */,
 				AFFCE7BD209A3F1500539D76 /* AIHTTPURLSession.m in Sources */,
 				AFFCE7BC209A3F1500539D76 /* AIHTTPRequest.m in Sources */,
@@ -361,7 +359,7 @@
 				DEVELOPMENT_TEAM = D9UL93T4E6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AiPlan",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AiPlan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -370,10 +368,10 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplanT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4ef38fd6-6ca1-4319-b4bd-3538f8b6b83b";
-				PROVISIONING_PROFILE_SPECIFIER = APlanTest_profile;
+				PROVISIONING_PROFILE = "b857a747-69b5-48d0-9720-b85ae851acb3";
+				PROVISIONING_PROFILE_SPECIFIER = AIPlan_ProfileDis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -389,7 +387,7 @@
 				DEVELOPMENT_TEAM = D9UL93T4E6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AiPlan",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AiPlan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -398,10 +396,10 @@
 					"-Objc",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplanT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4ef38fd6-6ca1-4319-b4bd-3538f8b6b83b";
-				PROVISIONING_PROFILE_SPECIFIER = APlanTest_profile;
+				PROVISIONING_PROFILE = "b857a747-69b5-48d0-9720-b85ae851acb3";
+				PROVISIONING_PROFILE_SPECIFIER = AIPlan_ProfileDis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
