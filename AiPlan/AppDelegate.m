@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 #import <AIBase/AIBase.h>
-#import <CoreTelephony/CTCellularData.h>
-#import "VersionManager.h"
-
 
 @interface AppDelegate ()<WKNavigationDelegate,WKUIDelegate>
 @property (nonatomic, strong) AINavigationController        *mainNav;
@@ -34,16 +31,6 @@
     self.mainNav = tempNav;
     _mainNav.navigationBarHidden = YES;
     
-    GlobalCfg *cfg = [GlobalCfg SharedObj];
-#if 1
-    NSString *homeURL = [cfg attr:@"online.addr"];
-    NSURL *url = [NSURL URLWithString:homeURL];
-#else
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *url = [NSURL URLWithString:[mainBundle pathForResource:@"department" ofType:@"html" inDirectory:@"demo/page"]];
-#endif
-    
-    [_mainVC loadWKWebViewForURL:url configFile:@"wade-plugin.xml"];
     self.window.rootViewController = _mainNav;
     [_window makeKeyAndVisible];
 }
@@ -52,70 +39,12 @@
     [self useWKWebViewController];
 }
 
-- (void)initAppParam {
-    // 解析全局配置
-    GlobalCfg *cfg = [GlobalCfg SharedObj];
-    NSData *cfgData = [[AIPluginTools SharedObj] roadResWithName:@"global.properties"];
-    [cfg parseConfigByData:cfgData element:nil attrKey:nil];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self initAppParam];
     [self layoutMainPage];
-    [self setCustomUserAgent];
-    [self checkNetAuth];
     return YES;
 }
 
-- (void)setCustomUserAgent {
-    GlobalCfg *cfg = [GlobalCfg SharedObj];
-    NSString *agentString = [cfg attr:@"userAgent"];
-    [_mainVC setUserAgent:agentString];
-}
-
-- (void)checkNetAuth {
-    if (@available(iOS 9.0, *)) {
-        __weak AppDelegate * wSelf = self;
-        CTCellularData *cellularData = [[CTCellularData alloc]init];
-        cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(CTCellularDataRestrictedState state){
-            //获取联网状态
-            AppDelegate *sSelf = wSelf;
-            switch (state) {
-                case kCTCellularDataNotRestricted:
-                    NSLog(@"Not Restricted");
-                    break;
-                case kCTCellularDataRestricted:
-                case kCTCellularDataRestrictedStateUnknown: {
-                    UIViewController* viewCtrl = sSelf.window.rootViewController;
-                    UIAlertController* controller = [UIAlertController alertControllerWithTitle:@"使用网络权限" message:@"'信.点兵'需要使用您的wifi或者蜂窝数据,请到设置里设置权限,之后重启应用" preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    UIAlertAction* confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
-                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                        exit(0);
-                    }];
-                    [controller addAction:confirm];
-                    [viewCtrl presentViewController:controller animated:YES completion:nil];
-                }
-                    
-                    break;
-                default:
-                    break;
-            };
-        };
-    
-    } else {
-        // Fallback on earlier versions
-    }
-}
-
-#pragma mark - WKNavigationDelegate
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    GlobalCfg *cfg = [GlobalCfg SharedObj];
-    NSString *version = [cfg attr:cfg.CONFIG_FIELD_VERSION];
-    NSString *js = [NSString stringWithFormat:@"setAppVersion('版本：%@');",version];
-    [webView evaluateJavaScript:js completionHandler:nil];
-}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -137,15 +66,50 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 耗时的操作
-        [VersionManager checkVersion];
-    });
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+    GlobalCfg *cfg = [GlobalCfg SharedObj];
+    NSString *version = [cfg attr:cfg.CONFIG_FIELD_VERSION];
+    NSString *js = [NSString stringWithFormat:@"setAppVersion('版本：%@');",version];
+    [webView evaluateJavaScript:js completionHandler:nil];
+}
+
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message?:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }])];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+    
+}
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
+    //    DLOG(@"msg = %@ frmae = %@",message,frame);
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message?:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(NO);
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(YES);
+    }])];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:prompt message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.text = defaultText;
+    }];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"完成" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(alertController.textFields[0].text?:@"");
+    }])];
+    
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 

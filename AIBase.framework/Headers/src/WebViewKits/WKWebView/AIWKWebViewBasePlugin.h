@@ -28,4 +28,10 @@
 // 扩展原生能力接口
 - (void)JN_Test:(NSDictionary *_Nullable)params;
 
+// 退出程序
+- (void)JN_Quit:(NSString *)params;
+
+// 分享程序
+- (void)JN_Sharing:(NSString *)params;
+
 @end

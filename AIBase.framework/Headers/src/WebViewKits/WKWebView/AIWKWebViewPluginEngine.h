@@ -10,7 +10,7 @@
 #import "../../Owns/BaseVC.h"
 
 
-#define kJSObjectName    @"WadeNAObjHander"
+
 
 @interface AIWKWebViewPluginEngine : NSObject<WKScriptMessageHandler>
 
