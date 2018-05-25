@@ -13,9 +13,6 @@
  专用于读取在mainBoundle里的properties的配置
  */
 @interface AIConfiguration : NSObject
-
-@property (nonatomic, readonly, strong) NSDictionary *config;
-
 AISINGLETON_DEF(AIConfiguration, sharedConfiguration)
 
 // @param name 配置文件名

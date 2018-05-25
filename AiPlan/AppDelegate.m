@@ -74,13 +74,6 @@
 }
 
 #pragma mark - WKNavigationDelegate
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    GlobalCfg *cfg = [GlobalCfg SharedObj];
-    NSString *version = [cfg attr:cfg.CONFIG_FIELD_VERSION];
-    NSString *js = [NSString stringWithFormat:@"setAppVersion('版本：%@');",version];
-    [webView evaluateJavaScript:js completionHandler:nil];
-}
-
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message?:@"" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
