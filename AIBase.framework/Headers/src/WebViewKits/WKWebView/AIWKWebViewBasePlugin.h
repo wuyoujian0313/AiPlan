@@ -22,9 +22,6 @@
 // js匿名回调, actionName 即配置wade-plugin.xml中，action的name
 - (void)callback:(NSString *_Nonnull)actionName param:(NSString *_Nonnull)param;
 
-// 格式化js
-+ (NSString * _Nullable )paramEncodeForJs:(NSString *_Nonnull)string;
-
 // 扩展原生能力接口
 - (void)JN_Test:(NSDictionary *_Nullable)params;
 

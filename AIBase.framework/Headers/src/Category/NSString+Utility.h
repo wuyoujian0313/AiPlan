@@ -46,5 +46,5 @@
 
 - (NSString *)byteToHex;
 - (NSString *)hexToString;
-
+- (NSString * _Nullable )paramEncodeForJs;
 @end

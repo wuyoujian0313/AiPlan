@@ -10,8 +10,6 @@
 #import "../../Owns/BaseVC.h"
 
 
-
-
 @interface AIWKWebViewPluginEngine : NSObject<WKScriptMessageHandler>
 
 // 根据传入的配置文件，注册插件,配置文件从mainBundle里加载
@@ -28,8 +26,5 @@
 
 // 调用JS API
 - (void)excuteJavascript:(NSString*_Nonnull)script completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
-
-// 参数js格式化
-+ (NSString *_Nonnull)paramEncodeForJs:(NSString *_Nonnull)string;
 
 @end
