@@ -19,6 +19,7 @@
 @property(nonatomic,copy,readonly) NSString* CONFIG_FIELD_VERSION;
 @property(nonatomic,copy,readonly) NSString* CONFIG_FIELD_VERSIONURL;
 @property(nonatomic,copy,readonly) NSString* CONFIG_FIELD_USERAGENT;
+@property(nonatomic,copy,readonly) NSString* CONFIG_FIELD_APPNAME;
 
 
 AISINGLETON_CLASS_DEF(GlobalCfg,SharedObj);

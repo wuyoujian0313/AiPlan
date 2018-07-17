@@ -14,8 +14,6 @@
 @property(nonatomic,copy,readonly) NSString* CONFIG_FIND_PATH;
 @property(nonatomic,copy,readonly) NSString* CONFIG_ATTR_NAME;
 @property(nonatomic,copy,readonly) NSString* CONFIG_ATTR_CLASS;
-@property(nonatomic,copy,readonly) NSString* CONFIG_ATTR_PACKAGENAME;
-@property(nonatomic,copy,readonly) NSString* CONFIG_ATTR_METHODNAME;
 
 AISINGLETON_CLASS_DEF(WebViewPluginCfg,SharedObj);
 

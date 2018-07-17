@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
-    <action name="JN_Test" class="AIWKWebViewBasePlugin" methodName="JN_Test"></action>
-    <action name="JN_Quit" class="AIWKWebViewBasePlugin" methodName="JN_Quit"></action>
-    <action name="JN_Sharing" class="AIWKWebViewBasePlugin" methodName="JN_Sharing"></action>
+    <action name="JN_Test" class="AIWKWebViewBasePlugin"></action>
+    <action name="JN_Quit" class="AIWKWebViewBasePlugin"></action>
+    <action name="JN_Sharing" class="AIWKWebViewBasePlugin"></action>
+    <action name="JN_OpenDocument" class="AIWKWebViewBasePlugin"></action>
 </plugins>

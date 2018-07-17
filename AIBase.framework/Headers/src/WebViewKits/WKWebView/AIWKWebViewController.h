@@ -10,7 +10,7 @@
 #import "../../Owns/BaseVC.h"
 #import <WebKit/WebKit.h>
 
-@interface AIWKWebViewController : BaseVC<WKNavigationDelegate,WKUIDelegate>
+@interface AIWKWebViewController : BaseVC
 @property (nonatomic,weak, nullable) id <WKNavigationDelegate,WKUIDelegate> delegate;
 @property (nonatomic,readonly, strong) WKWebView * _Nonnull wkWebView;
 
@@ -19,5 +19,12 @@
 
 // 释放WebView的http(s)的请求监听组件
 - (void)unregisterURLProtocolClass:(Class _Nonnull )protocolClass;
+
+// 刷新当前页面
+- (void)reload;
+// 后退
+- (void)goBack;
+// 前进
+- (void)goForward;
 
 @end

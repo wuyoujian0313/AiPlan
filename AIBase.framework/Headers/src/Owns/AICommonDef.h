@@ -13,9 +13,9 @@
 #ifndef _AISINGLETON_API_
 #define _AISINGLETON_API_
 
-#define AISINGLETON_DEF(type,APIName)       + ( type *) APIName;
+#define AISINGLETON_DEF(type,APIName)       + ( type * _Nonnull) APIName;
 #define AISINGLETON_IMP(type,APIName)       \
-+ ( type *) APIName {                       \
++ ( type * _Nonnull) APIName {              \
     static type *obj = nil;                 \
     static dispatch_once_t onceToken;       \
     dispatch_once(&onceToken, ^{            \
@@ -29,9 +29,9 @@
 #ifndef _AISINGLETON_CLASS_
 #define _AISINGLETON_CLASS_
 
-#define AISINGLETON_CLASS_DEF(type,APIName)             + ( type *) APIName;
+#define AISINGLETON_CLASS_DEF(type,APIName)             + ( type * _Nonnull) APIName;
 #define AISINGLETON_CLASS_IMP(type,APIName)             \
-+ ( type *) APIName {                                   \
++ ( type * _Nonnull) APIName {                          \
     static type *obj = nil;                             \
     static dispatch_once_t onceToken;                   \
     dispatch_once(&onceToken, ^{                        \
@@ -40,7 +40,7 @@
     return obj;                                         \
 }                                                       \
                                                         \
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {  \
++ (instancetype)allocWithZone:(struct _NSZone * _Nonnull)zone {  \
     return [self APIName ];                             \
 }                                                       \
                                                         \

@@ -330,8 +330,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: China Mobile Group shaanxi Company Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: China Mobile Group shaanxi Company Limited";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D9UL93T4E6;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -347,8 +347,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmcc.shanxi.aiplan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82e1a2b4-f367-410a-a693-a1b7f3cbf2f6";
-				PROVISIONING_PROFILE_SPECIFIER = aiplan_devProfile;
+				PROVISIONING_PROFILE = "b857a747-69b5-48d0-9720-b85ae851acb3";
+				PROVISIONING_PROFILE_SPECIFIER = AIPlan_ProfileDis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

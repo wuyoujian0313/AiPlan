@@ -10,7 +10,7 @@
 #import "../../Owns/BaseVC.h"
 
 @interface AIWKWebViewBasePlugin : NSObject
-@property(nonatomic,strong,nonnull) BaseVC              *vc;
+@property(nonatomic,weak) BaseVC                        * _Nullable vc;
 @property(nonatomic,strong,nonnull) WKWebView           *wkWebView;
 
 // 调用JS API
@@ -26,9 +26,12 @@
 - (void)JN_Test:(NSDictionary *_Nullable)params;
 
 // 退出程序
-- (void)JN_Quit:(NSString *)params;
+- (void)JN_Quit:(NSString *_Nullable)params;
 
 // 分享程序
-- (void)JN_Sharing:(NSString *)params;
+- (void)JN_Sharing:(NSString *_Nullable)params;
+
+// 打开文件
+- (void)JN_OpenDocument:(NSString *_Nullable)params;
 
 @end
