@@ -4,4 +4,5 @@
     <action name="JN_Quit" class="AIWKWebViewBasePlugin"></action>
     <action name="JN_Sharing" class="AIWKWebViewBasePlugin"></action>
     <action name="JN_OpenDocument" class="AIWKWebViewBasePlugin"></action>
+    <action name="JN_CheckVersion" class="AIWKWebViewBasePlugin"></action>
 </plugins>

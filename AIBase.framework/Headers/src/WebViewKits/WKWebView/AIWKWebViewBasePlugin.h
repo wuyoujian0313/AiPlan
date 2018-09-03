@@ -34,4 +34,7 @@
 // 打开文件
 - (void)JN_OpenDocument:(NSString *_Nullable)params;
 
+// 自动更新
+- (void)JN_CheckVersion:(NSString *_Nonnull)versionConfigUrl;
+
 @end

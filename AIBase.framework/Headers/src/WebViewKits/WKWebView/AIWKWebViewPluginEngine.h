@@ -42,4 +42,6 @@ AISINGLETON_DEF(AIWKWebViewPluginEngine,SharedEngine);
 // 调用JS API
 - (void)excuteJavascript:(NSString*_Nonnull)script completionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
 
+- (void)checkUpdate:(NSString*)versionConfigUrl;
+
 @end
